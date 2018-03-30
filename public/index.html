@@ -7,13 +7,26 @@
         <title></title>
     </head>
     <body ng-controller="MainController as ctrl">
-        <form ng-submit="ctrl.createBeers()">
-            <input type="text" ng-model="ctrl.name"placeholder="Name">
-            <input type="text" ng-model="ctrl.brand" placeholder="Brand">
-            <input type="text" ng-model="ctrl.img" placeholder="Image: http://">
-            <input type="text" ng-model="ctrl.abv" placeholder="Alcohol Without %">
-            <button type="submit">Add Beer</button>
-        </form>
+        <div>
+            <form ng-submit="ctrl.createBeers()">
+                <label for="name">Name:</label>
+                <input type="text" name="name" ng-model="ctrl.name"placeholder="Name"></br>
+                <label for="brand">Brand:</label>
+                <input type="text" name="brand" ng-model="ctrl.brand" placeholder="Brand"></br>
+                <label for="image">Image:</label>
+                <input type="text" name="image" ng-model="ctrl.img" placeholder="Image: http://"></br>
+                <label for="abv">ABV:</label>
+                <input type="text" name="abv" ng-model="ctrl.abv" placeholder="Alcohol Without %"></br>
+                <button type="submit">Add Beer</button>
+            </form>
+        </div>
         <div ng-repeat="beer in ctrl.allBeers">
+            <h3>{{beer.name}}<h3>
+            <h5>{{beer.brand}}</h5>
+            <h5>{{beer.abv}}</h5>
+            <img ng-src="{{beer.img}}"/>
+            {{beer.likes}}</br>
+            <button ng-click="ctrl.deleteBeer(beer)">Delete</button>
+        </div>
     </body>
 </html>

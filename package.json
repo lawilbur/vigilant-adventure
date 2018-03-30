@@ -1,0 +1,23 @@
+{
+  "name": "vigilant-adventure",
+  "version": "1.0.0",
+  "description": "w07d05 homework",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lawilbur/vigilant-adventure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lawilbur/vigilant-adventure/issues"
+  },
+  "homepage": "https://github.com/lawilbur/vigilant-adventure#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

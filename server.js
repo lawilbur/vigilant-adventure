@@ -12,7 +12,7 @@ app.use('/beers' , beerController);
 
 
 mongoose.connect('mongodb://localhost:27017/beers');
-mongoose.connection.once('Open', () => {
+mongoose.connection.once('open', () => {
     console.log('Mongod is listening');
 })
 

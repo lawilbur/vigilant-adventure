@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="BeerApp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="/js/app.js"></script>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body ng-controller="MainController as ctrl">
+        <form ng-submit="ctrl.createBeers()">
+            <input type="text" ng-model="ctrl.name"placeholder="Name">
+            <input type="text" ng-model="ctrl.brand" placeholder="Brand">
+            <input type="text" ng-model="ctrl.img" placeholder="Image: http://">
+            <input type="text" ng-model="ctrl.abv" placeholder="Alcohol Without %">
+            <button type="submit">Add Beer</button>
+        </form>
+    </body>
+</html>

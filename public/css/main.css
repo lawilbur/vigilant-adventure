@@ -1,0 +1,19 @@
+*{
+    border: 1px solid lightgrey;
+    margin: 3px;
+}
+body{
+    background-color: azure;
+}
+h1, h3{
+    text-align: center;
+}
+.mainContainer{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.header{
+    margin: 0 auto;
+    width: 80%;
+}

@@ -10,7 +10,7 @@
     <body ng-controller="MainController as ctrl">
         <div class="mainContainer">
             <div class='header'>
-                <div >
+                <div>
                     <h1>Track Your Favorite Beer</h1>
                     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
@@ -36,6 +36,14 @@
                     <img ng-src="{{beer.img}}"/>
                     {{beer.likes}}</br>
                     <button ng-click="ctrl.deleteBeer(beer)">Delete</button>
+                    <!-- Needed to have beer.key, otherwise when you used ctrl, it would not update beer -->
+                    <form ng-submit="ctrl.editBeer(beer)">
+                        <input type="text" ng-model="beer.name" placeholder="Name">
+                        <input type="text" ng-model="beer.brand" placeholder="Brand">
+                        <input type="text" ng-modle="beer.img" placeholder="Image: http://">
+                        <input type="text" ng-model="beer.abv" placeholder="Alcohol Without %">
+                        <button type="submit">Edit Beer</button>
+                    </form>
                 </div>
             </div>
         </body>

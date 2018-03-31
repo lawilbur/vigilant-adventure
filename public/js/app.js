@@ -42,5 +42,23 @@ app.controller('MainController', ['$http', function($http){
         })
     }
 
+    this.editBeer = (beer) => {
+        $http({
+            method:'PUT',
+            url:'/beers/' + beer._id,
+            data: {
+                name: beer.name,
+                brand: beer.brand,
+                img: beer.img,
+                abv: beer.abv,
+                likes: beer.likes
+            }
+        }).then((response) => {
+            this.getBeers()
+        }, (error) => {
+            console.log(error);
+        })
+    }
+
     this.getBeers();
 }])

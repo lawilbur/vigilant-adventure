@@ -35,18 +35,19 @@
             <div class=bottomContainer>
                 <div class='showBeerContainers' ng-repeat="beer in ctrl.allBeers">
                     <h3>{{beer.name}}</h3>
-                        <h5>{{beer.brand}}</h5>
-                        <h5>{{beer.abv}}</h5>
-                        <h6>{{beer.likes}}</h6>
-                        <img ng-src="{{beer.img}}"/>
+                        <h5>Brand: {{beer.brand}}</h5>
+                        <h5> ABV: {{beer.abv}}%</h5>
+                        <h6>Likes: {{beer.likes}}</h6>
+                        <img ng-src="{{beer.img}}"/></br>
 
                         <button ng-click="ctrl.deleteBeer(beer)">Delete</button>
                         <!-- Needed to have beer.key, otherwise when you used ctrl, it would not update beer -->
-                        <form ng-submit="ctrl.editBeer(beer , form)">
+                        <a href='#' ng-if="$index !== ctrl.showBeer" ng-click="(ctrl.showBeer === $index) ? ctrl.showBeer = null : ctrl.showBeer = $index">Edit</a>
+                        <form ng-if="$index === ctrl.showBeer"ng-submit="ctrl.editBeer(beer , form)">
                             <input type="text" ng-model="form.name" placeholder="Name">
                             <input type="text" ng-model="form.brand" placeholder="Brand">
                             <input type="text" ng-modle="form.img" placeholder="Image: http://">
-                            <input type="text" ng-model="form.abv" placeholder="Alcohol Without %">
+                            <input type="text" ng-model="form.abv" placeholder="Alcohol Without %"></br>
                             <button type="submit">Edit Beer</button>
                         </form>
                     </div>

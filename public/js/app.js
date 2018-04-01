@@ -2,6 +2,7 @@ const app = angular.module('BeerApp' , []);
 
 app.controller('MainController', ['$http', function($http){
     this.allBeers = [];
+    this.showBeer = null;
 
     this.getBeers = () => {
         $http({
@@ -59,6 +60,25 @@ app.controller('MainController', ['$http', function($http){
             console.log(error);
         })
     }
+
+    // this.likeBeer = (beer , form) => {
+    //     form.likes += 1;
+    //     $http({
+    //         method:'PUT',
+    //         url:'/beers/' + beer._id,
+    //         data: {
+    //             name: form.name,
+    //             brand: form.brand,
+    //             img: form.img,
+    //             abv: form.abv,
+    //             likes: form.likes
+    //         }
+    //     }).then((response) => {
+    //         this.getBeers()
+    //     }, (error) => {
+    //         console.log(error);
+    //     })
+    // }
 
     this.getBeers();
 }])

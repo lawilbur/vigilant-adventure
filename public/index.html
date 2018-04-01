@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="BeerApp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="/js/app.js"></script>
+        <meta charset="utf-8">
+        <link rel='stylesheet' type="text/css" href="css/main.css">
+        <title></title>
+    </head>
+    <body ng-controller="MainController as ctrl">
+        <div class="mainContainer">
+            <div class='header'>
+                <div class='headerBoxs'>
+                    <h1>Track Your Favorite Beer</h1>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class='headerBoxs headbox2'>
+                    <h3>Enter a Beer</h3>
+                    <form ng-submit="ctrl.createBeers()">
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" ng-model="ctrl.name"placeholder="Name"></br>
+                        <label for="brand">Brand:</label>
+                        <input type="text" name="brand" ng-model="ctrl.brand" placeholder="Brand"></br>
+                        <label for="image">Image:</label>
+                        <input type="text" name="image" ng-model="ctrl.img" placeholder="Image: http://"></br>
+                        <label for="abv">ABV:</label>
+                        <input type="text" name="abv" ng-model="ctrl.abv" placeholder="Alcohol Without %"></br>
+                        <button type="submit">Add Beer</button>
+                    </form>
+                </div>
+            </div>
+            <div class='bottomContainerHeader'>
+                <h1>Recently added Beers</h1>
+            </div>
+            <div class=bottomContainer>
+                <div class='showBeerContainers' ng-repeat="beer in ctrl.allBeers">
+                    <h3>{{beer.name}}</h3>
+                        <h5 class="beerElem">Brand: {{beer.brand}}</h5>
+                        <h5 class="beerElem"> ABV: {{beer.abv}}%</h5>
+                        <h6 class="beerElem">Likes: {{beer.likes}}</h6>
+                        <img ng-src="{{beer.img}}"/></br>
+
+
+                        <!-- Needed to have beer.key, otherwise when you used ctrl, it would not update beer -->
+                        <a href='#' ng-if="$index !== ctrl.showBeer" ng-click="(ctrl.showBeer === $index) ? ctrl.showBeer = null : ctrl.showBeer = $index">Edit</a>
+                        <form ng-if="$index === ctrl.showBeer"ng-submit="ctrl.editBeer(beer , form)">
+                            <input type="text" ng-model="form.name" placeholder="Name">
+                            <input type="text" ng-model="form.brand" placeholder="Brand">
+                            <input type="text" ng-modle="form.img" placeholder="Image: http://">
+                            <input type="text" ng-model="form.abv" placeholder="Alcohol Without %"></br>
+                            <button type="submit">Edit Beer</button>
+                        </form>
+                        <button ng-click="ctrl.deleteBeer(beer)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </body>
+</html>

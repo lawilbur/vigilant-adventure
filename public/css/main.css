@@ -1,0 +1,75 @@
+/* this was just so I could see the boxes and work on styling should be removed for final*/
+/* *{
+    border: 1px solid black;
+    margin: 2px;
+
+} */
+
+body{
+    background-color: #EDC7B7;
+}
+/* Center headers */
+h1, h3{
+    margin: 0;
+    text-align: center;
+}
+input{
+    padding: 2px;
+    margin-bottom: 5px;
+}
+
+/* container to hold everything on the page*/
+.mainContainer{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+/* Header box with info and createBeers*/
+.header{
+    display: flex;
+    /* margin: 5%; */
+    width: 100%;
+
+
+}
+
+.headerBoxs{
+    margin: 1%;
+    padding: 1%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #BAB2B5;
+    color: #123C69;
+}
+.headbox2{
+    align-content: center;
+    padding: 2%;
+    /* width: 200px; */
+}
+.bottomContainer{
+    display: flex;
+    width: 100%;
+}
+.bottomContainerHeader{
+    width: 100%;
+}
+.showBeerContainers{
+    /* display: flex; */
+    padding: 1%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #BAB2B5;
+    margin: 10px;
+    align-content: center;
+    width: 20%;
+
+}
+img{
+    margin-left: 15%;
+    max-width: 70%;
+    height: auto;
+}
+.beerElem{
+    margin: 0 auto;
+}

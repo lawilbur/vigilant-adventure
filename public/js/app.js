@@ -21,7 +21,7 @@ app.controller('MainController', ['$http', function($http){
                 brand: this.brand,
                 img: this.img,
                 abv: this.abv,
-                likes: this.likes
+                likes: 0
             }
         }).then((response) => {
             console.log(response.data);
@@ -42,16 +42,16 @@ app.controller('MainController', ['$http', function($http){
         })
     }
 
-    this.editBeer = (beer) => {
+    this.editBeer = (beer , form) => {
         $http({
             method:'PUT',
             url:'/beers/' + beer._id,
             data: {
-                name: beer.name,
-                brand: beer.brand,
-                img: beer.img,
-                abv: beer.abv,
-                likes: beer.likes
+                name: form.name,
+                brand: form.brand,
+                img: form.img,
+                abv: form.abv,
+                likes: form.likes
             }
         }).then((response) => {
             this.getBeers()
